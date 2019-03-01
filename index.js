@@ -5,12 +5,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var i18n = require('i18n');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
 
 var app = express();
-
 
 app.use(session({
   secret : 'MyHouse_session',
@@ -32,15 +33,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales: ['ko', 'en'],
+ 
+  // sets a custom cookie name to parse locale settings from
+  cookie: 'MyHouselang',
+ 
+  // where to store json files - defaults to './locales'
+  directory: __dirname + '/locales',
+  defaultLocale :'ko'
+});
+
+app.use(i18n.init);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -52,6 +66,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 var port = process.env.PORT || 3000; //*
 app.listen(port, function(){

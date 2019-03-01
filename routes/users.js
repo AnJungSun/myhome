@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
   console.log("get session userid =>"+req.session.userid);
-  res.render('users/login', { title: 'login', userid:  req.session.userid});
+  res.render('users/login', { title: 'KangHouse', userid:  req.session.userid});
 });
 
 router.post('/login', function(req, res, next) {
@@ -22,7 +22,7 @@ router.post('/login', function(req, res, next) {
     if (!err) {    
       if(rows==null){
         console.log("Null user");
-        res.render('users/login', { title: 'login', userid:''});
+        res.render('users/login', { title: 'KangHouse', userid:''});
         return;
       }else {
         req.session.userid = rows.user_id;

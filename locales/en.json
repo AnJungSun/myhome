@@ -1,0 +1,13 @@
+{
+	"main": "Main",
+	"login": "Login",
+	"loginout": "Logout",
+    "sign": "Sign in",
+    "week1" : "Monday",
+	"week2" : "Thursday",
+	"week3" : "Wednesday",
+	"week4" : "Tursday",
+	"week5" : "Friday",
+	"week6" : "Saturday",
+	"assets" : "assets"
+}
