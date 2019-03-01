@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%=title%></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/offcanvas.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <% include ../comm/header.ejs %>
+
+    <main role="main" class="container">
+        <div class="py-5 text-center">
+            <h2>Member Register</h2>
+        </div>
+
+      <form class="needs-validation" novalidate action="/users/sign" method="post">
+
+            
+            <div class="mb-3">
+                <label for="Login ID">Login ID</label>
+                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Username" required>
+            </div>   
+            <div class="mb-3">
+                <label for="PassWord">PassWord</label>
+                <input type="password" class="form-control" id="passwd" name="passwd" placeholder="PassWord" required>
+            </div>   
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="user_nm" name="user_nm" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="user_add" name="user_add" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+          </form>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/lib/jquery/dist/jquery.slim.min.js" ></script>
+    <script src="/lib/bootstrap/assets/js/vendor/popper.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/bootstrap/assets/js/vendor/holder.min.js"></script>
+    <script src="/javascripts/offcanvas.js"></script>
+  </body>
+</html>
